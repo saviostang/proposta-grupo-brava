@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Follow-up — Grupo Brava | dgenny®</title>
+  <meta property="og:title" content="Grupo Brava × dgenny® — Follow-up pós-reunião" />
+  <meta property="og:description" content="Mapa comparativo: o que fica invisível na operação hoje e o que muda quando a cotação e a negociação ganham escala." />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:  #121325;
+      --roxo:  #6660B4;
+      --rosa:  #FFBEF5;
+      --branco: #FFFFFF;
+      --cinza-claro: rgba(255,255,255,0.07);
+      --cinza-borda: rgba(255,255,255,0.12);
+    }
+
+    body {
+      background: var(--azul);
+      color: var(--branco);
+      font-family: 'Quicksand', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    section { padding: 64px 24px; }
+    .container { max-width: 760px; margin: 0 auto; }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 72px 24px 64px;
+      border-bottom: 1px solid var(--cinza-borda);
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(102,96,180,0.18);
+      border: 1px solid rgba(102,96,180,0.4);
+      color: var(--rosa);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--rosa); }
+    .hero p.subtitulo {
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      max-width: 600px;
+    }
+
+    /* ─── SEÇÃO GENÉRICA ─── */
+    .section-label {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--roxo);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .section-title span { color: var(--rosa); }
+    .section-body {
+      color: rgba(255,255,255,0.75);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .section-body p + p { margin-top: 16px; }
+    .divider { border: none; border-top: 1px solid var(--cinza-borda); }
+
+    /* ─── MAPA COMPARATIVO ─── */
+    .comp-list { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
+    .comp-card {
+      background: var(--cinza-claro);
+      border: 1px solid var(--cinza-borda);
+      border-radius: 14px;
+      padding: 24px;
+    }
+    .comp-tema {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 600px) {
+      .comp-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .comp-col {
+      padding-left: 14px;
+      border-left: 3px solid rgba(255,255,255,0.18);
+    }
+    .comp-col.dgenny { border-left-color: var(--rosa); }
+    .comp-tag {
+      display: block;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 6px;
+    }
+    .comp-col.dgenny .comp-tag { color: var(--rosa); }
+    .comp-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+    }
+
+    /* ─── BLOCO DE DESTAQUE ─── */
+    .feature-highlight {
+      background: rgba(255,190,245,0.08);
+      border: 1px solid rgba(255,190,245,0.3);
+      border-radius: 14px;
+      padding: 28px 26px;
+      margin-top: 24px;
+    }
+    .feature-highlight .feature-tag {
+      display: inline-block;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rosa);
+      margin-bottom: 12px;
+    }
+    .feature-highlight p {
+      font-size: 14.5px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+    }
+    .feature-highlight p + p { margin-top: 10px; }
+    .feature-highlight ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+    .feature-highlight ul li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .feature-highlight ul li::before {
+      content: "→";
+      color: var(--rosa);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── IMPACTO ─── */
+    .impacto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .impacto-item {
+      background: rgba(102,96,180,0.1);
+      border: 1px solid rgba(102,96,180,0.25);
+      border-radius: 14px;
+      padding: 26px 20px;
+      text-align: center;
+    }
+    .impacto-item .numero {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--rosa);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .impacto-item .label {
+      font-size: 12.5px;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ─── QUOTE ─── */
+    .quote-block {
+      background: rgba(102,96,180,0.1);
+      border-left: 3px solid var(--roxo);
+      border-radius: 0 12px 12px 0;
+      padding: 22px 26px;
+      margin-top: 32px;
+    }
+    .quote-block p {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      margin-top: 18px;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      text-align: center;
+      padding: 64px 24px;
+    }
+    .cta-section h2 {
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .cta-section h2 span { color: var(--rosa); }
+    .cta-section p {
+      color: rgba(255,255,255,0.65);
+      font-size: 15.5px;
+      max-width: 460px;
+      margin: 0 auto 32px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--roxo);
+      color: var(--branco);
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--cinza-borda);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    footer .footer-marca {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--branco);
+      margin-bottom: 8px;
+    }
+    footer .footer-marca span { color: var(--rosa); }
+    footer .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 1px;
+    }
+    footer .footer-info {
+      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ──────────────── HERO ──────────────── -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Follow-up · Pós-reunião</div>
+      <h1>O que a operação do<br /><span>Grupo Brava</span> ainda não vê — e o que muda quando a cotação ganha escala</h1>
+      <p class="subtitulo">
+        Depois da nossa conversa, organizamos um raio-x rápido do que conversamos: o que hoje é difícil de medir na rotina de compras do Grupo Brava — e o que passa a aparecer quando a cotação e a negociação ganham escala com a dgenny®.
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────────── MAPA COMPARATIVO ──────────────── -->
+  <section>
+    <div class="container">
+      <div class="section-label">Mapa Comparativo</div>
+      <h2 class="section-title">Hoje <span>×</span> Com escala na cotação</h2>
+      <div class="section-body">
+        <p>
+          Ponto a ponto, o que muda na operação de 10 a 14 obras e R$ 3 a 4 milhões/mês em compras quando a cotação deixa de depender só da memória e da disponibilidade de cada comprador.
+        </p>
+      </div>
+
+      <div class="comp-list">
+
+        <div class="comp-card">
+          <div class="comp-tema">📋 Cotação de insumos</div>
+          <div class="comp-grid">
+            <div class="comp-col">
+              <span class="comp-tag">Hoje</span>
+              <div class="comp-text">Cada comprador negocia pelo WhatsApp, do próprio jeito — o histórico de preços e fornecedores fica na cabeça da pessoa, não na empresa.</div>
+            </div>
+            <div class="comp-col dgenny">
+              <span class="comp-tag">Com dgenny®</span>
+              <div class="comp-text">Cotação estruturada e busca automática de fornecedores, com histórico centralizado disponível para todo o time de suprimentos.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-tema">🧾 Especificações técnicas (Sienge)</div>
+          <div class="comp-grid">
+            <div class="comp-col">
+              <span class="comp-tag">Hoje</span>
+              <div class="comp-text">Medida, acabamento e marca ficam escondidos em campos de observação interna — fora do que se vê na hora de cotar e receber o material.</div>
+            </div>
+            <div class="comp-col dgenny">
+              <span class="comp-tag">Com dgenny®</span>
+              <div class="comp-text">Especificações organizadas e visíveis no momento da cotação, reduzindo o risco de comprar o item errado.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-tema">🔍 Conferência Pedido × Nota Fiscal</div>
+          <div class="comp-grid">
+            <div class="comp-col">
+              <span class="comp-tag">Hoje</span>
+              <div class="comp-text">Comparação manual, item a item — quando acontece, é tarde: com o caminhão na porta da obra e o cronograma pressionando.</div>
+            </div>
+            <div class="comp-col dgenny">
+              <span class="comp-tag">Com dgenny®</span>
+              <div class="comp-text">Comparação automática assim que a nota fiscal é emitida — divergências tratadas antes da entrega na obra.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-tema">⏱️ Tempo do time de suprimentos</div>
+          <div class="comp-grid">
+            <div class="comp-col">
+              <span class="comp-tag">Hoje</span>
+              <div class="comp-text">2 compradores sustentam uma operação de R$ 3 a 4 milhões/mês cotando, negociando e conferindo notas manualmente.</div>
+            </div>
+            <div class="comp-col dgenny">
+              <span class="comp-tag">Com dgenny®</span>
+              <div class="comp-text">Até 60% menos tempo em tarefas operacionais repetitivas — o time foca em negociação, análise e decisão.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-tema">💰 Saving nas compras</div>
+          <div class="comp-grid">
+            <div class="comp-col">
+              <span class="comp-tag">Hoje</span>
+              <div class="comp-text">O resultado da negociação depende do tempo e da disposição de cada comprador naquele dia — sem padrão nem comparação entre propostas.</div>
+            </div>
+            <div class="comp-col dgenny">
+              <span class="comp-tag">Com dgenny®</span>
+              <div class="comp-text">Negociação estruturada e equalização automática de propostas — saving médio de 3% a 8% sobre o volume comprado.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ──────────────── PREJUÍZOS INVISÍVEIS ──────────────── -->
+  <section>
+    <div class="container">
+      <div class="section-label">O Que Está na Mesa Hoje</div>
+      <h2 class="section-title">Prejuízos que <span>não aparecem</span> em nenhum relatório</h2>
+      <div class="section-body">
+        <p>
+          Sobre um volume de R$ 3,5 milhões/mês, cada 1% de saving não capturado representa cerca de <strong>R$ 35.000/mês</strong> que não aparecem como "perda" em lugar nenhum — porque nunca existiu uma comparação que tornasse esse valor visível.
+        </p>
+      </div>
+
+      <div class="feature-highlight">
+        <div class="feature-tag">Hoje, sem instrumento de comparação</div>
+        <ul>
+          <li>No cenário conservador (3% de saving não capturado), são <strong>~R$ 105.000/mês</strong> deixados na mesa em negociações sem padrão ou equalização.</li>
+          <li>Erros de especificação descobertos só na obra geram retrabalho, atraso de cronograma e negociação de última hora com o fornecedor — custo real, mas raramente rastreado.</li>
+          <li>O tempo dos 2 compradores cotando pelo WhatsApp e conferindo notas manualmente é tempo que não está sendo usado para negociar melhor, hoje.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ──────────────── GANHOS PROJETADOS ──────────────── -->
+  <section>
+    <div class="container">
+      <div class="section-label">O Que Passa a Aparecer</div>
+      <h2 class="section-title">Ganhos projetados <span>com escala na cotação</span></h2>
+      <div class="section-body">
+        <p>
+          Aplicando os percentuais de saving observados em operações comparáveis ao volume informado pelo Grupo Brava (R$ 3,5 milhões/mês), o ganho potencial passa a ser mensurável — e o investimento se paga em poucos dias de operação.
+        </p>
+      </div>
+
+      <div class="impacto-grid">
+        <div class="impacto-item">
+          <div class="numero">3-8%</div>
+          <div class="label">Saving médio sobre o volume comprado, com negociação estruturada</div>
+        </div>
+        <div class="impacto-item">
+          <div class="numero">R$ 105k–280k</div>
+          <div class="label">Economia mensal estimada, conforme o cenário</div>
+        </div>
+        <div class="impacto-item">
+          <div class="numero">-60%</div>
+          <div class="label">Tempo do time em tarefas operacionais repetitivas</div>
+        </div>
+        <div class="impacto-item">
+          <div class="numero">≈14 dias</div>
+          <div class="label">Payback do investimento anual completo, no cenário conservador</div>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p>
+          O que hoje é invisível — saving não capturado, retrabalho por especificação errada, tempo do time em tarefas repetitivas — passa a ser visível, mensurável e tratável antes de virar problema na obra.
+        </p>
+      </div>
+
+      <p class="disclaimer">
+        Estimativas baseadas no volume médio mensal de compras informado pelo Grupo Brava (R$ 3,5 milhões) e em percentuais de saving observados em operações comparáveis com negociação estruturada via dgenny®. Detalhamento completo do investimento e dos cenários na proposta enviada.
+      </p>
+    </div>
+  </section>
+
+  <!-- ──────────────── CTA ──────────────── -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Vamos colocar essa escala<br />em prática no <span>Grupo Brava</span>?</h2>
+      <p>Seguimos com a validação interna e os próximos passos já organizados na proposta — qualquer dúvida, é só responder por aqui.</p>
+      <a href="https://wa.me/5511999999999" class="btn-primary">Falar com a dgenny®</a>
+    </div>
+  </section>
+
+  <!-- ──────────────── FOOTER ──────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-marca">dgenny<span>®</span></div>
+      <div class="footer-tagline">Negocie. Compre. Escale.</div>
+      <div class="footer-info">
+        Follow-up preparado exclusivamente para Grupo Brava · Junho de 2026<br />
+        dgenny® · IA de compras B2B · proposta.dgenny.com.br
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
